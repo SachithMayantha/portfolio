@@ -1,30 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  images: {
-    unoptimized: true,
-  },
-  basePath: process.env.NODE_ENV === "production" ? "/sachith-portfolio" : "",
-  assetPrefix:
-    process.env.NODE_ENV === "production" ? "/sachith-portfolio/" : "",
-  output: "export",
-  trailingSlash: true,
-  distDir: "out",
-  webpack: (config, { isServer }) => {
-    // Fixes npm packages that depend on `fs` module
-    if (!isServer) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-      };
-    }
-    return config;
-  },
-};
+  // 1️⃣ 🔑  turn on static export
+  output: 'export',
 
+  // 2️⃣ paths on Pages are always /<repo-name>/…
+  basePath: '/portfolio',           // ⬅ repo name
+  trailingSlash: true,              // this helps with GitHub 404s
+
+  // 3️⃣ disable server-side image optimizer (no Node runtime on Pages)
+  images: { unoptimized: true }
+};
 export default nextConfig;
