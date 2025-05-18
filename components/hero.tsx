@@ -8,7 +8,7 @@ export default function Hero() {
       <div className="flex-1 flex justify-center">
         <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/20">
           <Image
-            src="/placeholder2.png?height=920&width=720"
+            src="https://sachithmayantha.github.io/portfolio/placeholder2.png?height=920&width=720"
             alt="Sachith Fernando"
             fill
             className="object-cover"
